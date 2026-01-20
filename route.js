@@ -61,7 +61,7 @@ userRouter.post("/message", async (req, res) => {
 
     // 2) Send email using Resend
     await resend.emails.send({
-      from: "Jayess Bauences wholebutter0@gmail.com",   // for testing
+      from: "Jayess Bauences <wholebutter0@gmail.com>",
       to: [process.env.MAIL_ADMIN],
       subject: "New Contact Message Received",
       text: `New message from website:
@@ -74,8 +74,9 @@ userRouter.post("/message", async (req, res) => {
 
     return res.status(200).send({ message: "Message sent successfully" });
   } catch (error) {
-    console.error("Error while sending message:", error);
-    return res.status(500).send({ message: "Error while sending message" });
+    // console.error("Error while sending message:", error);
+    // return res.status(500).send({ message: "Error while sending message" });
+    console.error("Email failed but message saved", err);
   }
 });
 
