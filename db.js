@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 
-await mongoose.connect(process.env.MONGO_URL); // Use top-level await (Node.js 20+ with ESM)
+await mongoose.connect(process.env.MONGO_URL);
 
 const { Schema, Types } = mongoose;
 const ObjectId = Types.ObjectId;
